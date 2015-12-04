@@ -346,20 +346,21 @@
 
                         //set current item
                         var currentItem = 0;
+                        var prevItem = 0;
 
                         //show first item
                         $('.rotating-item').eq(currentItem).fadeIn(initialFadeIn);
 
                         //loop through the items
                         var infiniteLoop = setInterval(function(){
-                            $('.rotating-item').eq(currentItem).fadeOut(fadeTime);
-
+                            prevItem = currentItem
                             if(currentItem == numberOfItems -1){
                                 currentItem = 0;
                             }else{
                                 currentItem++;
                             }
                             $('.rotating-item').eq(currentItem).fadeIn(fadeTime);
+                            $('.rotating-item').eq(prevItem).fadeOut(fadeTime);
 
                         }, itemInterval);
                     }
